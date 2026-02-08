@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>To My Eternal Love ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="relative">
+  
+  <!-- Animated Gradient Background -->
+  <div class="gradient-bg"></div>
+  
+  <!-- Particle Canvas -->
+  <canvas id="particleCanvas"></canvas>
+  
+  <!-- Stars Background -->
+  <div id="stars"></div>
+  
+  <!-- Audio Controls -->
+<div class="fixed top-6 right-6 z-50 flex flex-col items-end gap-2">
+  
+  <!-- Tooltip -->
+  <div id="musicTooltip"
+       class="hidden px-4 py-2 text-sm text-white bg-black/70 backdrop-blur-md rounded-lg animate-pulse">
+    🎵 Tap to play our song
+  </div>
+
+  <!-- Music Button -->
+  <button id="musicToggle"
+          class="glass-button group relative"
+          title="Toggle Music">
+    <span class="music-icon">🎵</span>
+  </button>
+
+</div>
+
+  <!-- Welcome Screen -->
+  <div id="welcomeScreen" class="fixed inset-0 z-40 flex items-center justify-center bg-black/90 backdrop-blur-sm transition-opacity duration-1000">
+    <div class="text-center space-y-8 px-6">
+      <div class="text-7xl animate-pulse-slow">💝</div>
+      <h1 class="font-playfair text-4xl md:text-6xl text-white mb-4 animate-fade-in">
+        A Journey of Love Awaits
+      </h1>
+      <p class="text-white/80 text-lg md:text-xl max-w-md mx-auto animate-fade-in-delay">
+        Scroll through our love story and play interactive games...
+      </p>
+      <button id="enterBtn" class="px-12 py-4 bg-gradient-to-r from-pink-500 to-rose-600 rounded-full text-white font-semibold text-lg hover:scale-110 transition-transform duration-300 shadow-2xl animate-bounce-gentle">
+        Enter ✨
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Content - Scrollable -->
+  <div id="mainContent" class="hidden">
+    
+    <!-- Progress Bar -->
+    <div class="fixed top-0 left-0 right-0 z-40 h-1 bg-white/20">
+      <div id="progressBar" class="h-full bg-gradient-to-r from-pink-400 to-rose-600 transition-all duration-300" style="width: 0%"></div>
+    </div>
+
+    <!-- Navigation Menu -->
+    <nav class="fixed left-8 top-1/2 -translate-y-1/2 z-30 hidden lg:flex flex-col gap-3">
+      <a href="#section1" class="nav-dot active" data-section="section1" title="Opening"></a>
+      <a href="#section2" class="nav-dot" data-section="section2" title="Timeline"></a>
+      <a href="#section3" class="nav-dot" data-section="section3" title="Memory Game"></a>
+      <a href="#section4" class="nav-dot" data-section="section4" title="Love Quiz"></a>
+      <a href="#section5" class="nav-dot" data-section="section5" title="Puzzle"></a>
+      <a href="#section6" class="nav-dot" data-section="section6" title="Forever"></a>
+    </nav>
+
+    <!-- Section 1: Opening -->
+    <section id="section1" class="min-h-screen flex items-center justify-center px-4 py-20">
+      <div class="love-card max-w-4xl w-full">
+        <div class="text-center mb-8">
+          <div class="inline-block relative">
+            <div class="absolute inset-0 bg-pink-500/30 blur-3xl animate-pulse"></div>
+            <h1 class="font-love text-6xl md:text-8xl relative z-10 bg-gradient-to-r from-pink-200 via-rose-300 to-red-200 bg-clip-text text-transparent animate-shimmer">
+              My Eternal Love
+            </h1>
+          </div>
+        </div>
+        
+        <div class="heart-container mb-8">
+          <div class="beating-heart">❤️</div>
+        </div>
+        
+        <div class="love-letter">
+          <p id="loveText1" class="typed-text"></p>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#section2" class="scroll-indicator">
+            <span class="text-white/80 text-sm block mb-2">Scroll to continue</span>
+            <div class="scroll-arrow">↓</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Timeline -->
+    <section id="section2" class="min-h-screen flex items-center justify-center px-4 py-20">
+      <div class="love-card max-w-5xl w-full">
+        <h2 class="font-playfair text-4xl md:text-5xl text-center mb-12 text-white">
+          Our Journey Together 🌟
+        </h2>
+        
+        <div class="timeline-container">
+          <div class="timeline-item" style="animation-delay: 0.2s">
+            <div class="timeline-icon">🌱</div>
+            <div class="timeline-content">
+              <h3>The Beginning</h3>
+              <p>When I had nothing, you gave me everything. Not just love — but strength, patience, and belief.</p>
+              <span class="timeline-date">First Meeting</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item" style="animation-delay: 0.4s">
+            <div class="timeline-icon">💪</div>
+            <div class="timeline-content">
+              <h3>Through The Storm</h3>
+              <p>You fed me when I was empty, protected me when I was weak, stood beside me when the world felt heavy.</p>
+              <span class="timeline-date">Hard Times</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item" style="animation-delay: 0.6s">
+            <div class="timeline-icon">🤝</div>
+            <div class="timeline-content">
+              <h3>True Partnership</h3>
+              <p>You never tried to be louder than me, never arrogant, never selfish. You chose to stand with me.</p>
+              <span class="timeline-date">Growing Together</span>
+            </div>
+          </div>
+          
+          <div class="timeline-item" style="animation-delay: 0.8s">
+            <div class="timeline-icon">✨</div>
+            <div class="timeline-content">
+              <h3>Unwavering Support</h3>
+              <p>You appreciated me when I doubted myself. You motivated me when I wanted to stop.</p>
+              <span class="timeline-date">Present Day</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#section3" class="scroll-indicator">
+            <div class="scroll-arrow">↓</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Memory Matching Game -->
+    <section id="section3" class="min-h-screen flex items-center justify-center px-4 py-20">
+      <div class="love-card max-w-5xl w-full">
+        <h2 class="font-playfair text-4xl md:text-5xl text-center mb-4 text-white">
+          Memory Matching Game 🎮
+        </h2>
+        <p class="text-center text-white/80 mb-8">Match our special moments and dates!</p>
+        
+        <div class="game-stats mb-6 flex justify-center gap-8 text-white">
+          <div class="stat-item">
+            <span class="text-2xl font-bold" id="matchMoves">0</span>
+            <span class="text-sm block">Moves</span>
+          </div>
+          <div class="stat-item">
+            <span class="text-2xl font-bold" id="matchPairs">0/8</span>
+            <span class="text-sm block">Pairs</span>
+          </div>
+          <div class="stat-item">
+            <span class="text-2xl font-bold" id="matchTime">0:00</span>
+            <span class="text-sm block">Time</span>
+          </div>
+        </div>
+
+        <div id="memoryGame" class="grid grid-cols-4 gap-4 mb-8 max-w-3xl mx-auto">
+          <!-- Cards will be generated by JavaScript -->
+        </div>
+
+        <div class="text-center">
+          <button id="resetMemoryGame" class="game-button">
+            Reset Game 🔄
+          </button>
+        </div>
+
+        <div id="gameWinMessage" class="hidden mt-8 text-center">
+          <div class="win-message">
+            <div class="text-6xl mb-4">🎉</div>
+            <h3 class="text-3xl font-bold text-white mb-2">You Won!</h3>
+            <p class="text-white/80">Just like you won my heart forever ❤️</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#section4" class="scroll-indicator">
+            <div class="scroll-arrow">↓</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Love Quiz Game -->
+    <section id="section4" class="min-h-screen flex items-center justify-center px-4 py-20">
+      <div class="love-card max-w-4xl w-full">
+        <h2 class="font-playfair text-4xl md:text-5xl text-center mb-4 text-white">
+          How Well Do You Know Us? 💕
+        </h2>
+        <p class="text-center text-white/80 mb-8">Answer these questions about our love story!</p>
+        
+        <div id="quizContainer" class="space-y-6">
+          <!-- Quiz questions will be generated -->
+        </div>
+
+        <div id="quizResult" class="hidden mt-8 text-center">
+          <div class="quiz-result-card">
+            <div class="text-6xl mb-4">❤️</div>
+            <h3 class="text-3xl font-bold text-white mb-2">Your Score</h3>
+            <p class="text-5xl font-bold text-pink-300 mb-4"><span id="quizScore">0</span>/5</p>
+            <p id="quizMessage" class="text-white/80 text-lg"></p>
+            <button id="retryQuiz" class="game-button mt-6">Try Again 🔄</button>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#section5" class="scroll-indicator">
+            <div class="scroll-arrow">↓</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Photo Puzzle Game -->
+    <section id="section5" class="min-h-screen flex items-center justify-center px-4 py-20">
+      <div class="love-card max-w-4xl w-full">
+        <h2 class="font-playfair text-4xl md:text-5xl text-center mb-4 text-white">
+          Complete Our Memory 🧩
+        </h2>
+        <p class="text-center text-white/80 mb-8">Solve the puzzle to reveal our special moment!</p>
+        
+        <div class="game-stats mb-6 flex justify-center gap-8 text-white">
+          <div class="stat-item">
+            <span class="text-2xl font-bold" id="puzzleMoves">0</span>
+            <span class="text-sm block">Moves</span>
+          </div>
+          <div class="stat-item">
+            <span class="text-2xl font-bold" id="puzzleTime">0:00</span>
+            <span class="text-sm block">Time</span>
+          </div>
+        </div>
+
+        <div id="puzzleGame" class="puzzle-grid mx-auto mb-8">
+          <!-- Puzzle pieces will be generated -->
+        </div>
+
+        <div class="text-center space-y-4">
+          <button id="resetPuzzle" class="game-button">
+            Reset Puzzle 🔄
+          </button>
+          <button id="solvePuzzle" class="game-button bg-gradient-to-r from-purple-500 to-indigo-600">
+            Show Solution ✨
+          </button>
+        </div>
+
+        <div id="puzzleWinMessage" class="hidden mt-8 text-center">
+          <div class="win-message">
+            <div class="text-6xl mb-4">🎊</div>
+            <h3 class="text-3xl font-bold text-white mb-2">Puzzle Complete!</h3>
+            <p class="text-white/80">Together we can solve anything ❤️</p>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="#section6" class="scroll-indicator">
+            <div class="scroll-arrow">↓</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Final Message -->
+    <section id="section6" class="min-h-screen flex items-center justify-center px-4 py-20">
+      <div class="love-card max-w-4xl w-full">
+        <div class="text-center mb-8">
+       <div class="photo-frame mx-auto mb-8 relative flex flex-col items-center">
+
+  <!-- Glow Ring -->
+  <div class="absolute w-72 h-72 md:w-80 md:h-80 rounded-full bg-pink-400/30 blur-2xl animate-pulse"></div>
+
+  <!-- Circular Image -->
+  <img
+    src="./image2.jpeg"
+    alt="Our Forever"
+    class="relative z-10 w-64 h-64 md:w-72 md:h-72 object-cover rounded-full border-4 border-white/40 shadow-2xl"
+    loading="lazy"
+  />
+</div>
+
+          
+          <h2 class="font-playfair text-3xl md:text-4xl mb-6 text-white">
+            You Are My Answered Prayer 🙏
+          </h2>
+        </div>
+        
+        <div class="love-letter final-message">
+          <p class="text-lg leading-relaxed">
+            You are not just my love.<br>
+            You are my <span class="highlight">home</span>, my <span class="highlight">strength</span>, my <span class="highlight">answered prayer</span>.
+          </p>
+          <p class="text-lg leading-relaxed mt-4">
+            If I ever become someone better in this life,<br>
+            it will always begin with <span class="highlight">you</span>.
+          </p>
+          <p class="text-lg leading-relaxed mt-4">
+            You stayed — not because it was easy,<br>
+            but because your heart chose mine.
+          </p>
+        </div>
+
+        <div class="promise-ring mt-12 mb-8">
+          <div class="ring">💍</div>
+          <p class="text-white/90 text-center mt-4 text-xl">Forever & Always</p>
+        </div>
+
+        <p class="text-right italic text-white/90 text-xl font-playfair mt-8">
+          — Forever yours,<br>
+          <span class="font-semibold text-2xl bg-gradient-to-r from-pink-200 to-rose-200 bg-clip-text text-transparent">S. Mohana</span>
+        </p>
+
+        <div class="text-center mt-12">
+          <a href="#section1" class="game-button bg-gradient-to-r from-pink-500 to-rose-600">
+            ↑ Back to Top
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Elements -->
+  <div id="floatingHearts"></div>
+
+  <!-- Hidden Audio Element -->
+  <audio id="bgMusic" loop>
+    <source src="./song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
